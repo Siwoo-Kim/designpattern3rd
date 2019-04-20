@@ -33,6 +33,13 @@
             - 특정 변경가능한 알고리즘 군을 캡슐화(디자인 원칙:1) 하여 행동을 위임하면
             변경이 끼쳤을 땐 특정 알고리즘만 변경하므로 관리하기 편하고, 상속이 아닌 구성이므로 실행시 동적으로 알고리즘의 교체가 가능하여 유연하다.
 
+    4. 서로 상호작용을 하는 객체 사이에서는 가능하면 느슨하게 결합(Loose Coupling)하는 디자인을 사용하라.
+        느슨한 결합으로 두 객체를 엮을려면 두 객체는 서로간의 "최소한의 정보"만을 알아야 한다.
+        In computing and systems design a loosely coupled system is one in which each of its components has, or makes use of, little or no knowledge of the definitions of other separate components.
+        Subareas include the coupling of classes, interfaces, data, and services. Loose coupling is the opposite of tight coupling.
+            두 객체간 최소한의 정보만 알면서 의사소통 하는 법?
+                1. 인터페이스에 맞춰서 프로그래밍한다(디자인 원칙2:)
+                2. 두 객체안에서는 상대방의 구현 클래스를 숨겨라.
 
 디자인 패턴 카탈로그
     Strategy Pattern.
@@ -43,6 +50,20 @@
             상속이 아닌 구성을 활용한다.
             알고리즘군의 인터페이스를 통한 다형성을 활용한다.
 
+    Observer Pattern.
+        - 한 객체(Subject)의 상태가 바뀌면 그 객체에 의존하는 다른 객체(Observer)한테 연락이 가고
+        자동으로 내용이 갱신되는 방식으로 일대다(one-to-many) 의존성을 정의.
+
+        Observer: 관찰자 혹은 구독자 (Subscriber)
+        Subject(Observable): 데이터를 관리하는 주제 혹은 관찰하는 대상.
+
+        이벤트 프로그래밍과 Observer 패턴의 관계.
+            - Listener (Event Handler) 은 상태의 변화를 주시하는 Observer 이다.
+            - Button 은 상태를 가지고 Observer 에게 notify 하는 Observable 이다.
+        특징.
+            Observable(Subject) 과 Observer 의 관계. (일대다)
+            Loose Coupling. (Observable, Observer 인터페이스를 통한 서로의 정보 최소화)
+            Push 방식(Observable 에서 push 할 데이터를 선정)과 Pull 방식(this 를 전달하므로 옵저버가 원하는 데이터를 직접 가져옴).
 
 
 
